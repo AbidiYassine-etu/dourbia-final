@@ -40,7 +40,7 @@ const About = () => {
                 <h1 className={styles.title}>TOP destinations</h1>
               </div>
 
-              {/* Gallery Container */}
+              {/* Gallery Contai */}
               <div className={styles.galleryContainer}>
                 <div 
                   ref={galleryRef}
