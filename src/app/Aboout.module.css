@@ -1,0 +1,142 @@
+.aboutSection {
+  padding: 4.19rem 1.5rem 0.81rem 1.5rem;
+  width: 90rem;
+  margin-left: 15.5rem;
+  max-width: 1800px;
+  fill: #FFF;
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.10));
+}
+
+/* Typography */
+.subtitle {
+  color: #60D8F4;
+  font-family: Inter;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3125rem;
+  letter-spacing: 0.3125rem;
+  text-transform: uppercase;
+  margin-bottom: 1.94rem;
+  margin-left: 4.69rem;
+  display: flex;
+  width: 36.4375rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.title {
+  color: #002863;
+  -webkit-text-stroke-width: 1px;
+  font-family: Inter;
+  font-size: 3.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.8125rem;
+  text-transform: capitalize;
+  width: 37.8125rem;
+  margin-left: 4.69rem;
+}
+/* Gallery Container */
+.galleryContainer {
+  position: relative;
+}
+.galleryRow {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #8F8F8F transparent;
+  gap: 1.5rem;
+  padding-top: 0.88rem;
+}
+
+.galleryItem {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: 42rem;
+  height: 25.3125rem;
+  flex-shrink: 0;
+  aspect-ratio: 224/135;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+/* Content Box */
+.contentBox {
+  background: #fff;
+  padding: 4.19rem 0.75rem 0.81rem 0.75rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .aboutSection {
+    padding: 4rem;
+  }
+
+  .galleryItem {
+    width: min(600px, 80vw);
+    height: min(400px, 50vh);
+  }
+}
+
+@media (max-width: 992px) {
+  .aboutSection {
+    padding: 3rem;
+  }
+
+  .container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 2rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .galleryItem {
+    width: min(400px, 85vw);
+    height: min(300px, 40vh);
+  }
+
+  .contentBox {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutSection {
+    padding: 1.5rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .galleryItem {
+    width: min(300px, 90vw);
+    height: min(200px, 35vh);
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}

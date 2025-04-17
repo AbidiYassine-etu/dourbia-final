@@ -1,0 +1,240 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5.56rem 18rem 5rem 23rem;
+  background-color: #fff;
+}
+
+.title {
+  color: #002863;
+  font-family: Inter;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: flex;
+  width: 39.12506rem;
+  height: 20.375rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.31rem;
+}
+
+.button {
+  display: flex;
+  width: 16rem;
+  height: 3.625rem;
+  padding: 1.175rem 0.5625rem 1.1375rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 1.25rem;
+  border: 1px solid #60D8F4;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover {
+  display: flex;
+  width: 16rem;
+  height: 3.625rem;
+  padding: 1.175rem 0.5625rem 1.1375rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25rem;
+  background: #60D8F4;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.phoneWrapper {
+  position: relative;
+  width: 380px;
+  height: 721px;
+}
+.phoneVideo {
+  position: absolute;
+  top:15px; /* adjust these to match the screen area */
+  left: 15px;
+  width: 215px;
+  height: 450px;
+  border-radius: 24px; /* optional: match rounded screen corners */
+  object-fit: cover;
+  transform: rotate(4.1deg);
+  z-index: 1;
+}
+.buttonText {
+  display: flex;
+  width: 14.8125rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #60D8F4;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.65rem;
+}
+
+.buttonText:hover {
+  display: flex;
+  width: 14.8125rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.65rem;
+}
+
+
+.Demo p {
+  margin-top: 2.08rem;
+  margin-left: 3.5rem;
+  display: flex;
+  width: 6.875rem;
+  height: 2.25rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #60D8F4;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3125rem;
+  letter-spacing: 0.3125rem;
+  text-transform: uppercase;
+}
+
+.phoneFrame {
+  position: relative;
+  width: 15.64963rem;
+  height: 29.69313rem;
+  transform: rotate(4.1deg);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.storeBadges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 6.87rem;
+}
+
+.logoContainer {
+  width: 12.75rem;
+  height: 12.75rem;
+  flex-shrink: 0;
+  margin-bottom: 4.38rem;
+  margin-top: 2rem;
+}
+
+.badgesRow {
+  display: flex;
+  gap: 1.38rem;
+  align-items: flex-start;
+}
+
+.appStores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  width: 10.125rem;
+  height: 3rem;
+  flex-shrink: 0;
+  aspect-ratio: 27/8;
+  border-radius: 0.9375rem;
+}
+
+.qrCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 6.4375rem;
+  height: 6.25rem;
+  flex-shrink: 0;
+  aspect-ratio: 103/100;
+}
+
+.qrImage {
+  padding: 5px;
+  flex-shrink: 0;
+  border-radius: 0.9375rem;
+  background: #FFF;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 2rem 5%;
+  }
+
+  .textContent {
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .phoneContainer {
+    margin: 2rem 0;
+  }
+
+  .storeBadges {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .phoneFrame {
+    width: 250px;
+    height: 500px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .storeBadges {
+    gap: 1rem;
+  }
+
+  .badgeImage {
+    max-width: 120px;
+  }
+
+  .Demo {
+    margin-bottom: 2rem;
+  }
+}
+
+.subtitle {
+  color: #60D8F4;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}

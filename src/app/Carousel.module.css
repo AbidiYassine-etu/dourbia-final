@@ -1,0 +1,460 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+}
+
+.carouselItem {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.carouselItem.active {
+  opacity: 1;
+  pointer-events: auto; /* Enable interactions for active item */
+  z-index: 15; /* Ensure active item is above others */
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 95%;
+}
+
+
+.carouselCaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+
+
+.bookingWidget {
+  position: absolute;
+  bottom: 2rem;
+  margin-top: 3rem;
+  top:60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  z-index: 30;
+  isolation: isolate;
+}
+
+/* Custom Select Styles */
+.selectGroup {
+  position: relative;
+  top: 160px;
+  right: 10px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  vertical-align: top;
+}
+
+.customSelect {
+  position: relative;
+  width: 16rem;
+  z-index: 40;
+}
+
+.selectInput {
+  width: 100%;
+  height: 3.625rem;
+  border-radius: 0.3125rem;
+  border: none;
+  border-bottom: 1px solid #8F8F8F;
+  background: #FFF;
+  color: #8F8F8F;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.65rem;
+  text-align: center;
+  padding: 0 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.customArrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.optionsContainer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFF;
+  border-radius: 0.3125rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  z-index: 30
+}
+
+.optionItem {
+  width: 100%;
+  padding: 1rem;
+  color: #8F8F8F;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.65rem;
+  text-align: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px dashed #8F8F8F;
+  transition: background-color 0.2s;
+}
+
+.optionItem:hover {
+  background-color: #f5f5f5;
+}
+
+.optionItem.defaultOption {
+  border-bottom: 1px solid #E5691E;
+}
+
+/* Remove last border */
+.optionItem:last-child {
+  border-bottom: none;
+}
+
+
+.confirmationButton {
+  display: flex;
+  width: 16rem;
+  height: 3.625rem;
+  padding: 1.175rem 0.5625rem 1.1375rem .625rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.9375rem;
+  margin-left: 2rem;
+  border-bottom: 2px solid #FA7921;
+  background: #60D8F4;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65rem; /* 132% */
+
+}
+
+.confirmationButton:hover {
+  background: #E5691E;
+  transform: translateY(-1px);
+}
+
+
+.carouselDots {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem; /* Adjusted spacing between dots */
+  z-index: 20;
+  pointer-events: auto; /* Ensure clickable if necessary */
+
+}
+
+.dot {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #5ED8F2; /* Stroke color */
+  background-color: rgba(217, 217, 217, 0.5);
+  opacity: 0.5; /* Overall opacity for inactive */
+  z-index: 15; /* Lower than options container */
+  position: relative; /* Required for z-index to work */
+  pointer-events: auto !important;
+
+}
+
+.activeDot {
+  background-color: rgba(255, 255, 255, 0.8); 
+  opacity: 1; /* Full opacity for active */
+  border: 1px solid #5ED8F2;
+  position: relative;
+}
+
+/* Optional: Add subtle white inner circle for active state */
+.activeDot::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.controlPrev,
+.controlNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 1.75rem;
+  padding-top:1rem ;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+  text-transform: uppercase;
+  margin: 0 auto 3rem;
+  position: relative;
+  width: 9rem;
+  top:160px;
+  right: 10px;
+}
+
+
+.title1 {
+  color: #FFF;
+  position: relative;
+  top:50px;
+  left: 20px;
+}
+
+
+.subtitle {
+  color: #FFF;
+  text-align: center;
+  position: relative;
+  font-family: 'Inter';
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.5rem;
+  text-transform: capitalize;
+  margin: -0.5rem auto;
+  max-width: 90%;
+  position: relative;
+  top:60px;
+  right: 10px;
+} 
+/* New SVG wrapper */
+.svgWrapper {
+  position: relative;
+  display: inline-block;
+  margin: 2.2rem; /* Reduced side margins */
+}
+
+.orangeShape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Changed from 88% to use container width */
+  height: auto;
+  z-index: 0;
+}
+
+
+.svgWrapper2 {
+  position: relative;
+  display: inline-block;
+  margin: 2rem 0; /* Reduced side margins */
+}
+
+.orangeShape2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  z-index: 0;
+}
+
+
+.underlineSVG {
+  position: absolute;
+  bottom: 8px; /* Adjust based on your needs */
+  left: 63%;
+  transform: translateX(-50%);
+  width: 100%; /* Adjust SVG width relative to text */
+  height: 85px; /* Control SVG height */
+  z-index: -1; /* Put behind text if needed */
+}
+.orangeShape3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  z-index: 0;
+}
+
+.uppercaseText {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 4.5rem;
+  padding: 0.4em 1.2em;
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  padding-top: 0.1rem;
+}
+
+
+.capitalizeText {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-transform: capitalize;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 4.5rem;
+  padding: 0.4em 1.2em;
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  font-family: Inter;
+  padding-top: 0.1rem;
+}
+
+
+@media (max-width: 900px) {
+  .carousel {
+    height: 400px;
+  }
+
+  .carouselItem {
+    width: 600px;
+    height: 400px;
+
+  }
+  .centeredButton {
+    width: 180px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+    -webkit-text-stroke-width: 0.8px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.2em;
+  }
+
+    /* Dots adjustments */
+    .carouselDots {
+      gap: 28px; /* Reduced from 42px */
+    }
+    
+    .dot {
+      width: 24px;
+      height: 24px;
+      border-width: 0.8px;
+    }
+    
+    .activeDot::after {
+      width: 40%;
+      height: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    height: 300px;
+  }
+  
+  .carouselItem {
+    width: 450px;
+    height: 300px;
+  }
+
+  .centeredButton {
+    width: 190px;
+    min-height: 20px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    -webkit-text-stroke-width: 0.7px;
+    line-height: 1em;
+  }
+
+    /* Dots adjustments */
+    .carouselDots {
+      gap: 10px; /* Further reduced */
+      bottom: 15px; /* Raise dots slightly */
+    }
+    
+    .dot {
+      width: 18px;
+      height: 18px;
+      border-width: 0.5px;
+    }
+    
+    .activeDot {
+      transform: scale(1.1); /* Smaller scale bump */
+    }
+    
+    .activeDot::after {
+      width: 35%;
+      height: 35%;
+    }
+}
+
+
