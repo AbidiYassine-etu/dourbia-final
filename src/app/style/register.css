@@ -1,0 +1,367 @@
+/* Base styles */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+} */
+/* Main container */
+.main-container {
+    min-height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    overflow: hidden;
+    margin-top: 6rem;
+}
+
+/* Left panel */
+.left-panel {
+    position: relative;
+    border: 1px solid #d1d5db;
+    backdrop-filter: blur(0.25rem);
+    box-shadow: rgba(0, 0, 0, 0.1);
+    border-radius: 0 1.25rem 1.25rem 0;
+    overflow: hidden;
+    width: 52.25rem;
+    height: 56.8125rem;
+    flex-shrink: 0;
+    aspect-ratio: 658.50/749.00;
+
+}
+
+/* .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    aspect-ratio: 658.50/749.00; 
+} */
+.logo-position {
+    position: absolute;
+    left: 9.4rem;
+    top: 4.85rem;
+    width: 31.9375rem;
+    height: 16.375rem;
+    flex-shrink: 0;
+}
+
+.title-text {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 3.7rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    position: absolute;
+    left: 9rem;
+    top: 26rem;
+}
+
+/* Spacer */
+.spacer {
+    width: 5rem;
+}
+
+/* Right panel */
+.right-panel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.375rem 0rem 0rem 1.375rem;
+    background: #FFF;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.18);
+    width: 52.25rem;
+    height: 56.8125rem;
+    flex-shrink: 0;
+}
+
+.form-container {
+    /* width: 38.125rem; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Style pour le logo SVG */
+.right-panel .logo {
+    position: absolute;
+    top: 0.62rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1.5625rem;
+    width: 6.625rem;
+    height: 6.3125rem;
+    flex-shrink: 0;
+}
+
+.form-title {
+    color: #60D8F4;
+    font-family: Actor;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 11.375rem;
+    height: 1.78881rem;
+    flex-shrink: 0;
+    margin-top: 7.62rem;
+}
+
+.orange-star {
+    color: #FB7822;
+    font-family: Actor;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    right: 25.3rem;
+    transform: translateY(-50%);
+}
+
+.orange-star-email {
+    color: #FB7822;
+    font-family: Actor;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    right: 25.8rem;
+    transform: translateY(-50%);
+}
+
+.orange-star-password {
+    color: #FB7822;
+    font-family: Actor;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    right: 26.4rem;
+    transform: translateY(-50%);
+}
+
+.orange-star-password-confirm {
+    color: #FB7822;
+    font-family: Actor;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    right: 21rem;
+    transform: translateY(-50%);
+}
+
+/* Form elements */
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form elements */
+.input-group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
+    align-items: center;
+}
+
+.form-input {
+    /* height: 2.7rem;
+     width: 32rem; */
+    width: 35.90163rem;
+    height: 3.17131rem;
+    flex-shrink: 0;
+    background: #FFF;
+    border: none;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.9375rem;
+    padding: 0.75rem 1.44rem 0.63rem;
+    color: #8F8F8F;
+    font-family: Actor;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.93rem;
+    
+}
+
+/* Style du placeholder */
+.form-input::placeholder {
+    width: 12.9055rem;
+    color: #8F8F8F;
+    font-family: Actor;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.5;
+}
+
+/* Style pour l'icône du mot de passe */
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 60%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.password-toggle svg {
+    width: 1.59481rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+/* Ajustements pour le focus */
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.125rem rgba(94, 216, 242, 0.3);
+}
+
+/* Checkbox style */
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.42rem;
+    margin-left: 6rem;
+    color: #777272;
+    font-family: Actor;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.terms-checkbox a {
+    color: #FB7822;
+    font-family: Actor;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.signup-button {
+    align-items: center;
+    display: flex;
+    width: 14.91825rem;
+    height: 3.10838rem;
+    padding: 1rem 5.0625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5625rem;
+    flex-shrink: 0;
+    border-radius: 1.25rem;
+    background: #5ED8F2;
+    margin-top: 1.24rem;
+    margin-left: 12.5rem;
+    color: #FFF;
+    font-family: Actor;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.signup-button:hover {
+    background-color: #4AC0D8;
+}
+
+/* Lien de connexion */
+.login-link {
+    position: relative;
+    text-align: center;
+    margin-top: 1.24rem;
+    margin-left: 11.5rem;
+    color: #002863;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6rem;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    display: flex;
+    width: 18.75rem;
+    height: 1.1875rem;
+
+}
+
+/* Ajustements pour le responsive */
+@media (max-width: 64rem) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .left-panel {
+        display: none;
+    }
+
+    .spacer {
+        display: none;
+    }
+
+    .right-panel {
+        border-radius: 0;
+    }
+
+    .auth-form {
+        padding: 8rem 2rem 0 2rem;
+    }
+
+    .form-input {
+        width: 100%;
+    }
+}
+
+/* Ajustements responsive */
+@media (max-width: 40rem) {
+    .form-input {
+        width: 90%;
+        max-width: 36.5rem;
+    }
+}

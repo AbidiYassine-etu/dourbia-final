@@ -1,0 +1,100 @@
+/* Aide Page Styles */
+.aideContainer {
+    font-family: 'Actor';
+    padding: 2rem;
+    width: 45.4375rem;
+    height: 56.625rem;
+    flex-shrink: 0;    
+  }
+  .aideTitle {
+    color: #FB7822;
+    font-size: 2.25rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+  
+  .phoneVideo {
+    position: absolute;
+    bottom:15px;
+    right: 1130px;
+    width: 185px;
+    height: 440px;
+    border-radius: 24px; /* optional: match rounded screen corners */
+    object-fit: cover;
+    transform: rotate(4.1deg);
+    z-index: 1;
+  }
+  .aideSubtitle {
+    color: #474747;
+    font-family: 'Actor';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .contactForm {
+    display: flex;
+    padding:3rem 3rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .emailInput {
+    color: #777272;
+    font-family: 'Actor';
+    width: 15.0625rem;
+    height: 3.4375rem;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .demoTitle {
+    color: #002353;
+    font-size: 1.25rem;
+    text-decoration: underline solid;
+    text-underline-offset: 0.3em;
+    margin: 3rem 0 1.5rem;
+  }
+  
+  .phonePreview {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .phoneImage {
+    width: 215px;
+    height: 450px;
+    transform: rotate(4.1deg);
+  }
+
+
+  .submitButton {
+    width: 3.375rem;
+    height: 3.4375rem;
+    flex-shrink: 0;
+    border-radius: 0rem 0.625rem 0.625rem 0rem;
+    background: #FB7822;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 2rem;
+    transition: background 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background: #e56a1a;
+  }
+  
+  .sendIcon {
+    width: 1.52019rem;
+    height: 1.32563rem;
+    flex-shrink: 0;
+    
+  }
