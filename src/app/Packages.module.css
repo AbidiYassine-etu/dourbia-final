@@ -27,7 +27,7 @@
   line-height: 1.3125rem;
   letter-spacing: 0.3125rem;
   text-transform: uppercase;
-  margin-top: 1.94rem;
+  margin-top: 1.94rem !important; 
 }
 
 .title {
