@@ -3,16 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
 import "@/app/style/login.css";
 import { FcGoogle } from 'react-icons/fc';
 
 
 export default function SignInForm() {
   // États pour gérer le formulaire
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const success = searchParams.get("success");
   const [showPassword, setShowPassword] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [email, setEmail] = useState("");
@@ -23,13 +19,6 @@ export default function SignInForm() {
 
     window.location.href = 'http://localhost:8000/auth/google';
   };
-  // Effet pour afficher le message de succès
-  useEffect(() => {
-    if (success) {
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 3000);
-    }
-  }, [success]);
 
   return (
     <main className="maincontainer">
