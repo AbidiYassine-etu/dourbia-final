@@ -17,42 +17,6 @@ export default function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (password !== confirmPassword) {
-      alert("Les mots de passe ne correspondent pas");
-      return;
-    }
-    try {
-      const response = await fetch("http://localhost:8000/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: fullName,
-          email,
-          password,
-          country,
-          region,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem("token", data.token);
-        router.push("/sign-up/verification");
-      } else {
-        alert(data.message || "Erreur lors de l'inscription");
-      }
-    } catch (error) {
-      console.error("Erreur complète:", error);
-      alert("Problème de connexion avec le serveur");
-    }
-  };
-
   return (
     <main className="main-container">
       {/* Partie Gauche - Image */}
@@ -96,7 +60,7 @@ export default function SignUpForm() {
         />
         <div className="form-container">
           <h2 className="form-title">Créer un compte</h2>
-          <form onSubmit={handleSubmit} className="auth-form">
+          <form className="auth-form">
             {/* Input Nom complet */}
             <div className="input-group">
               <input

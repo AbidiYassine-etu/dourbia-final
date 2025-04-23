@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import "@/app/style/login.css";
-import { useAuth } from "../context/auth-context";
 import { FcGoogle } from 'react-icons/fc';
 
 
@@ -19,8 +18,6 @@ export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [, setErrorMessage] = useState("");
-  const { setIsLoggedIn } = useAuth();
 
   const handleGoogleSignIn = () => {
 
@@ -33,44 +30,6 @@ export default function SignInForm() {
       setTimeout(() => setShowSuccess(false), 3000);
     }
   }, [success]);
-  
-  // Gestion de la soumission du formulaire
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrorMessage("");
-  
-    try {
-      const response = await fetch("http://localhost:8000/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        credentials: 'include', // Important pour les cookies
-        body: JSON.stringify({
-          email: email.trim(),
-          password: password
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("isLoggedIn", "true");
-  
-        // Update auth context
-        setIsLoggedIn(true);
-  
-        router.push("/admin");
-      } else {
-        setErrorMessage(data.message || "Identifiants incorrects. Veuillez réessayer.");
-      }
-    } catch (error) {
-      console.error("Erreur complète:", error);
-      setErrorMessage("Erreur de connexion. Vérifiez votre connexion réseau.");
-    }
-  };
 
   return (
     <main className="maincontainer">
@@ -121,7 +80,7 @@ export default function SignInForm() {
         />
         <div className="formcontainer">
 
-          <form onSubmit={handleSubmit} className="authform">
+          <form className="authform">
             {/* Input Email */}
             <div className="inputgroup emailinput">
               <input
