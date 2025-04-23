@@ -268,7 +268,7 @@ export default function SignUpForm() {
 
             {/* Bouton d'inscription */}
             <button type="submit" className="signup-button">
-              S'inscrire
+              S&apos;inscrire
             </button>
 
             {/* Lien de connexion */}

@@ -19,7 +19,7 @@ export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [, setErrorMessage] = useState("");
   const { setIsLoggedIn } = useAuth();
 
   const handleGoogleSignIn = () => {
@@ -237,7 +237,7 @@ export default function SignInForm() {
 
             {/* Créer un compte */}
             <div className="createaccount">
-              <p>Vous n'êtes pas un membre?</p>
+              <p>Vous n&apos;êtes pas un membre?</p>
               <Link href="/sign-up">
                 Créer un compte
               </Link>
