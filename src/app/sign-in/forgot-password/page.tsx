@@ -63,7 +63,7 @@ const ForgotPassword = () => {
   return (
     <div className="forgot-container">
       <Image 
-        src="/logo4.png" 
+        src="/img/logo4.png" 
         alt="Logo" 
         width={90} 
         height={45} 

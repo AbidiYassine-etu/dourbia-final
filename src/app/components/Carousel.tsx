@@ -9,12 +9,16 @@ const Carousel = () => {
   const [destination, setDestination] = useState<string>('');
   const [duration, setDuration] = useState<string>('');
   const destinationOptions = [
-    { value: '', label: 'Destination' },
-    { value: 'Tous', label: 'Tous' },
-    { value: 'Carthage', label: 'Carthage' },
-    { value: 'La Marsa', label: 'La Marsa' }
+    { value: 'Tous', label: 'Tous',isDefault: false },
+    { value: 'Carthage', label: 'Carthage',isDefault: false },
+    { value: 'La Marsa', label: 'La Marsa',isDefault: false }
   ];
 
+  const durationOptions = [
+    { value: 'Tous', label: 'Tous',isDefault: false },
+    { value: '1 Journée', label: '1 Journée',isDefault: false },
+    { value: '1/2 Journée', label: '1/2 Journée',isDefault: false }
+  ];
     const items = [
       {
         image: '/img/carousel-1.png',
@@ -189,12 +193,7 @@ const Carousel = () => {
       <CustomSelect
         value={duration}
         onChange={setDuration}
-        options={[
-          { value: '', label: 'Durée' },
-          { value: 'Tous', label: 'Tous' },
-          { value: '1 Journée', label: '1 Journée' },
-          { value: '1/2 Journée', label: '1/2 Journée' }
-        ]}
+        options={durationOptions}
         defaultValue="Durée"
       />
 

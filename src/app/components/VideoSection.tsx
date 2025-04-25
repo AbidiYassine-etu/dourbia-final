@@ -10,7 +10,8 @@ const VideoDemoSection = () => {
     { src: '/video/video-2.mp4' },
     { src: '/video/video-1.mp4' },
     { src: '/video/video-2.mp4' },
-    { src: '/video/video-2.mp4' }
+    { src: '/video/video-1.mp4' },
+    { src: '/video/video-2.mp4' },
 
   ]
 

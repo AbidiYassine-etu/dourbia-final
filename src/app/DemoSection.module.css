@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5.56rem 18rem 5rem 23rem;
+  padding: 5rem 17rem 6rem 23rem;
   background-color: #fff;
+  padding-bottom: 9rem;
 }
 
 .title {
   color: #002863;
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 3.75rem;
   font-style: normal;
   font-weight: 500;
@@ -53,15 +54,15 @@
 }
 .phoneWrapper {
   position: relative;
-  width: 380px;
-  height: 721px;
+  width: 15.64963rem;
+  height: 29.69313rem;
 }
 .phoneVideo {
   position: absolute;
-  top:15px; /* adjust these to match the screen area */
-  left: 15px;
-  width: 215px;
-  height: 450px;
+  top:18px; /* adjust these to match the screen area */
+  left: 28px;
+  width: 195px;
+  height: 415px;
   border-radius: 24px; /* optional: match rounded screen corners */
   object-fit: cover;
   transform: rotate(4.1deg);
@@ -101,7 +102,6 @@
 
 
 .Demo p {
-  margin-top: 2.08rem;
   margin-left: 3.5rem;
   display: flex;
   width: 6.875rem;
@@ -140,7 +140,7 @@
   width: 12.75rem;
   height: 12.75rem;
   flex-shrink: 0;
-  margin-bottom: 4.38rem;
+  margin-bottom: 2.38rem;
   margin-top: 2rem;
 }
 

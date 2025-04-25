@@ -164,7 +164,7 @@ export default function SignInForm() {
             </button>
             {/* Mot de passe oublié */}
             <div className="forgotpassword">
-              <Link href="/email-page">
+              <Link href="/sign-in/email-page">
                 Mot de passe oublié ?
               </Link>
             </div>

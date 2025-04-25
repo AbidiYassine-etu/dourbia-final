@@ -21,19 +21,20 @@ const DemoSection = () => {
       <div className={styles.phoneDemo}>
         <div className={styles.phoneWrapper}>
           <Image
-            src="/img/iphone-frame.jpg"
+            src="/img/iphone-frame.png"
             alt="App Demo"
-            width={380}
-            height={721}
+            width={600}
+            height={600}
             className={styles.phoneFrame}
           />
-            <video
+          <video
                 className={styles.phoneVideo}
                 src="/video/Demo.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
+                controls
               />
             <div className={styles.Demo}>
               <p>Démo</p>

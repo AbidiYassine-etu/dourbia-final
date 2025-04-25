@@ -13,7 +13,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 3,
-      price: 300
+      price: 0
     },
     {
       image: '/img/pack2.png',
@@ -25,7 +25,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 4.2,
-      price: 60
+      price: 0
     },
     {
       image: '/img/pack3.png',
@@ -37,7 +37,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 4.2,
-      price: 120
+      price: 0
     },
     {
       image: '/img/pack4.png',
@@ -49,7 +49,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 4.2,
-      price: 55
+      price: 0
     },
     {
       image: '/img/pack5.png',
@@ -61,7 +61,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 4.2,
-      price: 80
+      price: 0
     },
     {
       image: '/img/pack6.png',
@@ -73,7 +73,7 @@ const Packages = () => {
       ),
       altText: "Pack Visiteur Journée Complète", // Add string alternative
       rating: 4.2,
-      price: 150
+      price: 0
     },
   ];
 
@@ -96,7 +96,6 @@ const Packages = () => {
                     alt={pkg.altText}
                     fill
                     className={styles.image}
-                    priority={index < 3} // Prioritize first 3 images
                   />
                 </div>
 
@@ -136,24 +135,9 @@ const Packages = () => {
           <div className={styles.viewMoreContainer}>
             <button className={styles.viewMoreButton}>
               Voir Plus
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                <g filter="url(#filter0_d_684_775)">
-                  <circle cx="13" cy="13" r="11" transform="rotate(-180 13 13)" fill="#FA7921" />
-                </g>
-                <path d="M5.44987 13.9074L17.7333 13.9074L12.3668 18.5866C11.938 18.9605 11.938 19.5742 12.3668 19.9481C12.4686 20.037 12.5894 20.1075 12.7224 20.1556C12.8555 20.2037 12.9981 20.2285 13.1421 20.2285C13.2861 20.2285 13.4287 20.2037 13.5618 20.1556C13.6948 20.1075 13.8156 20.037 13.9174 19.9481L21.1642 13.6293C21.2662 13.5406 21.3471 13.4353 21.4023 13.3193C21.4574 13.2033 21.4858 13.0789 21.4858 12.9533C21.4858 12.8278 21.4574 12.7034 21.4023 12.5874C21.3471 12.4714 21.2662 12.3661 21.1642 12.2774L13.9174 5.95859C13.8156 5.86981 13.6947 5.7994 13.5617 5.75136C13.4287 5.70331 13.2861 5.67859 13.1421 5.67859C12.9981 5.67859 12.8556 5.70331 12.7225 5.75136C12.5895 5.7994 12.4686 5.86981 12.3668 5.95859C12.265 6.04736 12.1843 6.15275 12.1292 6.26873C12.0741 6.38472 12.0457 6.50903 12.0457 6.63457C12.0457 6.76011 12.0741 6.88443 12.1292 7.00041C12.1843 7.1164 12.265 7.22178 12.3668 7.31056L17.7333 11.9897L5.44987 11.9897C4.84505 11.9897 4.35019 12.4212 4.35019 12.9486C4.35019 13.4759 4.84505 13.9074 5.44987 13.9074Z" fill="white" />
-                <defs>
-                  <filter id="filter0_d_684_775" x="0" y="0" width="30" height="30" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                    <feOffset dx="2" dy="2" />
-                    <feGaussianBlur stdDeviation="2" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.694118 0 0 0 0 0.694118 0 0 0 0 0.694118 0 0 0 0.25 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_684_775" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_684_775" result="shape" />
-                  </filter>
-                </defs>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+              <path d="M1.09977 8.67888L13.3832 8.67888L8.01674 13.358C7.58786 13.732 7.58786 14.3456 8.01674 14.7196C8.11847 14.8085 8.23931 14.879 8.37234 14.9271C8.50538 14.9752 8.64799 15 8.79201 15C8.93603 15 9.07864 14.9752 9.21167 14.9271C9.3447 14.879 9.46554 14.8085 9.56728 14.7196L16.8141 8.40082C16.9161 8.31211 16.997 8.20674 17.0522 8.09075C17.1073 7.97475 17.1357 7.85041 17.1357 7.72483C17.1357 7.59925 17.1073 7.47491 17.0522 7.35891C16.997 7.24292 16.9161 7.13755 16.8141 7.04885L9.56728 0.73007C9.46547 0.641298 9.3446 0.570882 9.21158 0.52284C9.07856 0.474796 8.93599 0.450069 8.79201 0.450069C8.64803 0.450069 8.50546 0.474796 8.37243 0.52284C8.23941 0.570882 8.11855 0.641298 8.01674 0.73007C7.91493 0.818841 7.83417 0.92423 7.77907 1.04022C7.72397 1.1562 7.69561 1.28051 7.69561 1.40606C7.69561 1.5316 7.72397 1.65591 7.77907 1.7719C7.83417 1.88788 7.91493 1.99327 8.01674 2.08204L13.3832 6.76119L1.09977 6.76119C0.494949 6.76119 9.53674e-05 7.19267 9.53674e-05 7.72004C9.53674e-05 8.2474 0.494949 8.67888 1.09977 8.67888Z" fill="white"/>
+            </svg>
             </button>
           </div>
         </div>

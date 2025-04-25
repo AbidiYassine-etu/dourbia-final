@@ -1,7 +1,7 @@
 /* Aide Page Styles */
 .aideContainer {
     font-family: 'Actor';
-    padding: 2rem;
+    padding: 2rem 6rem;
     width: 45.4375rem;
     height: 56.625rem;
     flex-shrink: 0;    
@@ -51,6 +51,7 @@
     font-weight: 400;
     line-height: normal;
   }
+
   
   .demoTitle {
     color: #002353;

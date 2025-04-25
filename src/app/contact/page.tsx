@@ -85,7 +85,7 @@ export default function ContactPage() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Envoyer Nous Un Message</h1>
+      <h1 className={styles.title}>Envoyez-nous un message</h1>
       
       {submitSuccess ? (
         <div className={styles.successMessage}>

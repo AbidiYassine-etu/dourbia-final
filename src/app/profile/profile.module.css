@@ -61,8 +61,15 @@
   .avatarWrapper {
     position: relative;
     display: inline-block;
-    width: 150px;
-    height: 150px;
+    width: 7.31706rem;
+    height: 7.26144rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .profile_container {
+    position: absolute;
+    bottom: 35px;
+    right: 45px
   }
   
   .avatarImage {
@@ -70,13 +77,13 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: solid;
+    border: solid #5ED8F2;
   }
   
   .avatarUploadLabel {
     position: absolute;
-    bottom: 25px;
-    right: 15px;
+    top: 90px;
+    left: 85px;
     background: #5ED8F2;
     color: white;
     padding: 0.5rem 1rem;
@@ -98,7 +105,10 @@
     line-height: normal;
     width: 15rem;
     height: 1.72456rem;
+    position: absolute;
     flex-shrink: 0;
+    text-align: center;
+    right: -60px;
   }
   
   .avatarUploadLabel:hover {
@@ -174,7 +184,9 @@
   }
 
   .submitButton {
-    margin-left:13rem ;
+    margin-top: 2.75rem;
+    margin-left:12rem ;
+    margin-bottom: 1.75rem;
     background: #5ED8F2;
     color: white;
     padding: 1rem 2rem;

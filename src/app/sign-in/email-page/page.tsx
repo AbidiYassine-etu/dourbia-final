@@ -44,7 +44,7 @@ const EmailPass = () => {
     return (
         <div className="emailContainer">
             <Image
-                src="/logo4.png"
+                src="/img/logo4.png"
                 width={103}
                 height={94}
                 alt="Logo Dourbia"

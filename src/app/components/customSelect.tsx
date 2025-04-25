@@ -7,6 +7,7 @@ interface CustomSelectProps {
     options: Array<{
       value: string;
       label: string;
+      isDefault:boolean;
     }>;
     defaultValue?: string;
   }
@@ -49,12 +50,15 @@ interface CustomSelectProps {
           <div className={styles.optionsContainer}>
             {options.map((option) => (
               <button
-                key={option.value}
+                key={option.value + option.label}
                 type="button"
+                disabled={option.isDefault}
                 className={`${styles.optionItem} ${option.value === '' ? styles.defaultOption : ''}`}
                 onClick={() => {
+                  if(!option.isDefault){
                   onChange(option.value);
                   setIsOpen(false);
+                  }
                 }}
               >
                 {option.label}
