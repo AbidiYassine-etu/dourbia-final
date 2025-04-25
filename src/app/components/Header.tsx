@@ -25,6 +25,7 @@ export default function Header() {
     { name: 'Destinations', path: '/destination' },
     { name: 'Expériences', path: '/experience' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' },
   ]
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)

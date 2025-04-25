@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "@/app/style/login.css";
 import { FcGoogle } from 'react-icons/fc';
+import { SiApple } from "react-icons/si";
 
 
 export default function SignInForm() {
@@ -132,32 +133,42 @@ export default function SignInForm() {
               </svg>
               <label htmlFor="remember">Se rappeler de moi ?</label>
             </div> */}
-            <div className="rememberme" onClick={() => setRememberMe(!rememberMe)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="27"
-                viewBox="0 0 31 30"
-                fill="none"
-              >
-                <path
-                  d="M1 1H30V29H1V1Z"
-                  fill="#fff"
-                  stroke="#C7C2C2"
-                  strokeWidth="2"
-                />
-                {rememberMe && (
-                  <path
-                    d="M7 15L13 21L24 8"
-                    stroke="#C7C2C2"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+              <div className="rememberme" onClick={() => setRememberMe(!rememberMe)}>
+                {rememberMe ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <path
+                      d="M13.7714 21.9375L5.604 13.9957L9.29574 10.4059L13.4432 14.4419L25.9617 0L29.9573 3.27069L13.7714 21.9375Z"
+                      fill="#C7C2C2"
+                    />
+                    <path
+                      d="M27.4554 9.65261V29.4056H-0.000488281V2.70801H21.6492L18.7937 5.99222H3.37699V26.1095H24.0656V13.5698L27.4554 9.65261Z"
+                      fill="#C7C2C2"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="27"
+                    viewBox="0 0 28 27"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M3.37699 15.8499V23.4009H24.0656V10.8612L24.0786 10.8462V3.29518L3.38997 3.29518L3.38997 15.8349L3.37699 15.8499ZM27.4554 26.6966V26.697H-0.000488281V-0.000616963H0.000210349L0.000210349 -0.000976562L27.4561 -0.000973273L27.4561 26.6966H27.4554Z"
+                      fill="#C7C2C2"
+                    />
+                  </svg>
                 )}
-              </svg>
-              <label htmlFor="remember">Se rappeler de moi ?</label>
-            </div>
+                <label htmlFor="remember">Se rappeler de moi ?</label>
+              </div>
             {/* Bouton Se Connecter */}
             <button type="submit" className="loginbutton">
               Se Connecter
@@ -181,6 +192,15 @@ export default function SignInForm() {
             >
               <FcGoogle size={20} />
               Google
+            </button>
+
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="apple-button"
+            >
+              <SiApple size={20} />
+              Apple
             </button>
 
             {/* Créer un compte */}
