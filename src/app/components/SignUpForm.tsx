@@ -202,32 +202,44 @@ export default function SignUpForm() {
               </label>
             </div> */}
             <div className="terms-checkbox" onClick={() => setAcceptedTerms(!acceptedTerms)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="31"
-                height="30"
-                viewBox="0 0 31 30"
-                fill="none"
-              >
-                {/* Carré de base */}
-                <path
-                  d="M27.1699 10.4524V29.9997H0V3.58008H21.4242L18.5984 6.83009H3.34231V26.7379H23.8155V14.3287L27.1699 10.4524Z"
-                  fill="#C7C2C2"
-                />
-
-                {/* Tick qui s'affiche seulement si acceptedTerms === true */}
-                {acceptedTerms && (
-                  <path
-                    d="M14.7716 21.9375L6.60425 13.9957L10.296 10.4059L14.4435 14.4419L26.9619 0L30.9575 3.27069L14.7716 21.9375Z"
-                    fill="#C7C2C2"
-                  />
+              {acceptedTerms ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <path
+                      d="M13.7714 21.9375L5.604 13.9957L9.29574 10.4059L13.4432 14.4419L25.9617 0L29.9573 3.27069L13.7714 21.9375Z"
+                      fill="#C7C2C2"
+                    />
+                    <path
+                      d="M27.4554 9.65261V29.4056H-0.000488281V2.70801H21.6492L18.7937 5.99222H3.37699V26.1095H24.0656V13.5698L27.4554 9.65261Z"
+                      fill="#C7C2C2"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="27"
+                    viewBox="0 0 28 27"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M3.37699 15.8499V23.4009H24.0656V10.8612L24.0786 10.8462V3.29518L3.38997 3.29518L3.38997 15.8349L3.37699 15.8499ZM27.4554 26.6966V26.697H-0.000488281V-0.000616963H0.000210349L0.000210349 -0.000976562L27.4561 -0.000973273L27.4561 26.6966H27.4554Z"
+                      fill="#C7C2C2"
+                    />
+                  </svg>
                 )}
-              </svg>
-              <label htmlFor="remember">J&apos;accepte les{" "}
+                <label htmlFor="remember">J&apos;accepte les{" "}
                 <Link href="#">conditions d&apos;utilisation</Link>{" "}
                 de Dourbia
               </label>
-            </div>
+              </div>
 
             {/* Bouton d'inscription */}
             <button type="submit" className="signup-button">

@@ -1,4 +1,4 @@
-.container {
+  .container {
     display: grid;
     grid-template-columns: 250px 1fr 200px;
     min-height: 100vh;
@@ -77,7 +77,6 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: solid #5ED8F2;
   }
   
   .avatarUploadLabel {
@@ -170,7 +169,7 @@
   
   .modalButton {
     margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem ;
     background: #0070f3;
     color: white;
     border: none;
@@ -184,8 +183,8 @@
   }
 
   .submitButton {
-    margin-top: 2.75rem;
-    margin-left:12rem ;
+    margin-top: 1rem;
+    margin-left: 8.5rem;
     margin-bottom: 1.75rem;
     background: #5ED8F2;
     color: white;
@@ -249,10 +248,12 @@
   .navButton.active {
     color: #002863;
     font-family: 'Actor';
-    font-size: 20px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    border-radius: 0.25rem;
+    border: 0.6px solid #002863;
   }
   
   .navButton.active svg path {
@@ -311,6 +312,84 @@
     font-size: 0.95rem;
     font-weight: 500;
   }
+
+  /* Password requirement message */
+.passwordInvalid {
+  color: #F00;
+  font-family: ABeeZee;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+
+
+.passwordValid {
+  color: #2B641E;
+  font-family: ABeeZee;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.password-toggle svg {
+  width: 1.25rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.input-container {
+  position: relative;
+  width: 37.5rem;
+  margin-bottom: 0rem;
+  height: 3.2rem;
+}
+/* Input */
+.forgot-input {
+  width: 37.5rem;
+  height: 3.177rem;
+  border-radius: 0.9375rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid #5ED8F2;
+  outline: none;
+  font-size: 1.5rem;
+  color: #718096;
+  font-family: ABeeZee;
+  padding-right: 3rem;
+}
+.forgot-input::placeholder {
+  color: #8F8F8F;
+  font-family: ABeeZee;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
   
   @media (max-width: 768px) {
     .container {

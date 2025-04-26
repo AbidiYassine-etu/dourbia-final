@@ -1,18 +1,30 @@
 /* Base styles */
 body {
-    padding-top: 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 4rem; /* Space for header */
     background: linear-gradient(0deg, #FEFEFE 0%, #FEFEFE 100%), #FFF;
+    position: relative;
 }
+
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
 .code-container {
-    padding-left: 10rem;
-    padding-top:2rem;
-    width: auto;
+    width: 45.4375rem;
     height: 44.1875rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
     background: #FFF;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.18);
-    margin-bottom: 4.25rem;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
@@ -37,6 +49,65 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 2.81rem;
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    color: #002353;
+    font-family: ABeeZee;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    width: 19.125rem;
+    height: 1.57475rem;
+    padding-top:1rem ;
+    margin-bottom: 3rem;
+    flex-shrink: 0;
+    justify-content: space-between;
+    }
+
+ .timer-info {
+    position: absolute;
+    gap: 0.5rem;
+    color: #002863;
+    text-align: center;
+    font-family: ABeeZee;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    left: 720px;
+    bottom: 550px;
+  }
+      
+.code-not-received {
+    color: #002863;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+      
+.code-not-received:hover {
+    color: #FB7822;
+}
+
+.info-texts {
+    text-align: center;
+    margin: 1rem 0;
+}
+.timer-message {
+    color: #666;
+    font-size: 0.9rem;
 }
 
 /* Description text */
