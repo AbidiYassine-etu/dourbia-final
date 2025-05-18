@@ -1,142 +1,151 @@
 .aboutSection {
   padding: 4.19rem 1.5rem 0.81rem 1.5rem;
-  width: 90rem;
-  margin-left: 15.5rem;
-  max-width: 1800px;
+  width: 100%;
+  max-width: 160rem; /* Changed from fixed width */
+  margin: 0 auto; /* Center the section */
   fill: #FFF;
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.10));
+  box-sizing: border-box;
 }
 
 /* Typography */
 .subtitle {
   color: #60D8F4;
   font-family: Inter;
-  font-size: 1.5625rem;
-  font-style: normal;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5625rem); /* Fluid font size */
   font-weight: 600;
   line-height: 1.3125rem;
   letter-spacing: 0.3125rem;
   text-transform: uppercase;
-  margin-bottom: 1.94rem;
-  margin-left: 4.69rem;
-  display: flex;
-  width: 36.4375rem;
-  height: 1.3125rem;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
+  margin: 0 0 1.94rem 2%;
+  width: auto;
+  height: auto;
+  display: block;
 }
+
 .title {
   color: #002863;
   -webkit-text-stroke-width: 1px;
   font-family: Inter;
-  font-size: 3.125rem;
-  font-style: normal;
+  font-size: clamp(2rem, 3vw + 0.5rem, 3.125rem); /* Fluid font size */
   font-weight: 400;
-  line-height: 2.8125rem;
+  line-height: 1.2;
   text-transform: capitalize;
-  width: 37.8125rem;
-  margin-left: 4.69rem;
+  width: 90%;
+  max-width: 37.8125rem;
+  margin: 0 0 0 2%;
 }
+
 /* Gallery Container */
 .galleryContainer {
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+
 .galleryRow {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: #8F8F8F transparent;
   gap: 1.5rem;
-  padding-top: 0.88rem;
+  padding: 0.88rem 2% 2rem;
 }
 
 .galleryItem {
   scroll-snap-align: center;
   flex: 0 0 auto;
-  width: 42rem;
-  height: 25.3125rem;
-  flex-shrink: 0;
-  aspect-ratio: 224/135;
-  position: relative;
+  width: calc(100% - 4rem); /* Mobile-first width */
+  height: 50vw; /* Maintain aspect ratio */
+  max-width: 42rem;
+  max-height: 25.3125rem;
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 /* Content Box */
 .contentBox {
   background: #fff;
-  padding: 4.19rem 0.75rem 0.81rem 0.75rem;
+  padding: 2rem 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   position: relative;
   z-index: 1;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-  .aboutSection {
-    padding: 4rem;
-  }
-
+/* Enhanced Responsive Adjustments */
+@media (min-width: 576px) {
   .galleryItem {
-    width: min(600px, 80vw);
-    height: min(400px, 50vh);
+    width: 75vw;
+    height: 45vw;
   }
-}
-
-@media (max-width: 992px) {
-  .aboutSection {
-    padding: 3rem;
-  }
-
-  .container {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .aboutSection {
-    padding: 2rem;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
-  .galleryItem {
-    width: min(400px, 85vw);
-    height: min(300px, 40vh);
-  }
-
-  .contentBox {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .aboutSection {
-    padding: 1.5rem;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  .galleryItem {
-    width: min(300px, 90vw);
-    height: min(200px, 35vh);
-  }
-
+  
   .subtitle {
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    margin-left: 4%;
   }
-
+  
   .title {
-    font-size: 1.75rem;
+    margin-left: 4%;
   }
+}
+
+@media (min-width: 768px) {
+  .galleryItem {
+    width: 60vw;
+    height: 36vw;
+  }
+  
+  .contentBox {
+    padding: 4.19rem 0.75rem 0.81rem 0.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .galleryItem {
+    width: 42rem;
+    height: 25.3125rem;
+  }
+  
+  .subtitle {
+    margin-left: 4.69rem;
+    width: 36.4375rem;
+  }
+  
+  .title {
+    margin-left: 4.69rem;
+    line-height: 2.8125rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .aboutSection {
+    padding-left: 15.5rem;
+    padding-right: 15.5rem;
+  }
+}
+
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+  .galleryRow {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .galleryItem {
+    scroll-snap-stop: always;
+  }
+}
+
+/* Scrollbar styling */
+.galleryRow::-webkit-scrollbar {
+  height: 8px;
+}
+
+.galleryRow::-webkit-scrollbar-thumb {
+  background: #8F8F8F;
+  border-radius: 4px;
 }

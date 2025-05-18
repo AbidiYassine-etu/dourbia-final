@@ -1,25 +1,183 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from '@/app/profile/profile.module.css';
 import "@/app/style/login.css";
-import { FcGoogle } from 'react-icons/fc';
 import { SiApple } from "react-icons/si";
+import { useAuth } from "../context/auth-context";
+import GoogleSignInButton from './GoogleSignInButton';
+import { useSearchParams,useRouter } from "next/navigation";
 
+// Generic Modal Component
+const CustomModal = ({
+  gifSrc,
+  heading,
+  message,
+  primaryButtonText,
+  secondaryButtonText,
+  onPrimaryClick,
+  onSecondaryClick,
+  onClose
+}: {
+  gifSrc: string;
+  heading?: string;
+  message: string;
+  primaryButtonText: string;
+  secondaryButtonText?: string;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
+  onClose: () => void;
+}) => (
+  <div className={styles.modalOverlay}>
+    <div className={styles.modalContent}>
+      <img src={gifSrc} alt="Status GIF" className={styles.modalGif} />
+      <h2 className={styles.modalHeading}>{heading}</h2>
+      <p className={styles.modalMessage}>{message}</p>
+      <div className={styles.modalButtons}>
+        <button 
+          onClick={onPrimaryClick || onClose}
+          className={styles.modalButton}
+        >
+          {primaryButtonText}
+        </button>
+        {secondaryButtonText && (
+          <button 
+            onClick={onSecondaryClick || onClose}
+            className={styles.modalButtonSecondary}
+          >
+            {secondaryButtonText}
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+);
 
 export default function SignInForm() {
   // États pour gérer le formulaire
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const success = searchParams.get("success");
   const [showPassword, setShowPassword] = useState(false);
-  const [showSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [, setErrorMessage] = useState("");
+  const { setIsLoggedIn } = useAuth();
 
-  const handleGoogleSignIn = () => {
 
-    window.location.href = 'http://localhost:8000/auth/google';
-  };
+
+   // Modal states
+   const [activeModal, setActiveModal] = useState<
+   'Success' | 'Error' | null
+ >(null);
+
+ // Modals configuration
+ const modals = {
+  Success: {
+     gifSrc: '/gifs/gif-check1.gif',
+     heading: 'succès',
+     message: ' Compte créé avec succès. Un code de vérification vous a été envoyé par email.',
+     primaryButtonText: 'Continuer',
+   },
+   Error: {
+     gifSrc: '/gifs/gif-alert2.gif',
+     heading: 'Erreur',
+     message: "Échec de l'inscription. Veuillez vérifier les informations saisies.",
+     primaryButtonText: 'Réessayer',
+   },
+ };
+
+
+// Effet pour afficher le message de succès
+useEffect(() => {
+  if (success) {
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  }
+}, [success]);
+
+// Gestion de l'authentification Google
+// useEffect(() => {
+//   const handleGoogleAuth = async () => {
+//     if (session?.user) {
+//       try {
+//         const response = await fetch("http://localhost:8000/auth/google", {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({
+//             email: session.user.email,
+//             name: session.user.name,
+//             googleId: session.user.id,
+//             idToken: session.user.accessToken,
+//           }),
+//         });
+
+//         const data = await response.json();
+
+//         if (response.ok) {
+//           localStorage.setItem("token", data.token);
+//           localStorage.setItem("user", JSON.stringify({
+//             username: data.user.username,
+//             role: data.user.role
+//           }));
+//           router.push("/admin");
+//         }
+//       } catch (error) {
+//         console.error("Erreur Google Auth:", error);
+//       }
+//     }
+//   };
+
+//   if (session) {
+//     handleGoogleAuth();
+//   }
+// }, [session, router]);
+
+// Gestion de la soumission du formulaire
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setErrorMessage("");
+
+  try {
+    const response = await fetch("http://localhost:8000/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        email: email.trim(),
+        password: password
+      }),
+      credentials:"include"
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log("sign in success")
+      localStorage.setItem("isLoggedIn", "true");
+
+      setIsLoggedIn(true);
+      setActiveModal('Success');
+
+    } else {
+      setErrorMessage(data.message || "Identifiants incorrects. Veuillez réessayer.");
+      setActiveModal('Error')
+    }
+  } catch (error) {
+    console.error("Erreur complète:", error);
+    setErrorMessage("Erreur de connexion. Vérifiez votre connexion réseau.");
+  }
+};
+
+
 
   return (
     <main className="maincontainer">
@@ -184,19 +342,9 @@ export default function SignInForm() {
               <span>OU</span>
               <div className="separator-line"></div>
             </div>
-            {/* Bouton Google */}
+           <GoogleSignInButton />
             <button
               type="button"
-              onClick={handleGoogleSignIn}
-              className="google-button"
-            >
-              <FcGoogle size={20} />
-              Google
-            </button>
-
-            <button
-              type="button"
-              onClick={handleGoogleSignIn}
               className="apple-button"
             >
               <SiApple size={20} />

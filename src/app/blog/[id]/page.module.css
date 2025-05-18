@@ -1,0 +1,89 @@
+/* app/blog/[id]/page.module.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 1rem;
+  }
+  
+  .backButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .backButton:hover {
+    transform: translateX(-4px);
+  }
+  
+  .backIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .title {
+    margin-bottom: 1.5rem;
+    color: #002863;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 66px;
+    letter-spacing: 0%;
+    text-align: justify;
+    vertical-align: middle;
+    text-transform: capitalize;
+    width: 1200px;
+
+  }
+  
+  .metaContainer {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    color: #474747;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 66px;
+    letter-spacing: 0%;
+    text-align: justify;
+    vertical-align: middle;
+    text-transform: capitalize;
+  }
+  
+  .metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .metaIcon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .contentBox {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+  }
+  
+  .contentText {
+    color: #4a5568;
+    font-size: 1.125rem;
+    white-space: pre-wrap;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.25rem;
+  }
+  
+  .error {
+    color: #e53e3e;
+  }

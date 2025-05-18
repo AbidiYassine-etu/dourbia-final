@@ -1,0 +1,219 @@
+.container {
+    padding: 6rem;
+    min-height: 100vh;
+  }
+  
+  .title {
+    color:#002863;
+    margin-bottom: 1rem;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: 0%;
+    text-align: left;
+    vertical-align: middle;
+
+  }
+  
+  .gradientBar {
+    height: 25px;
+    background: linear-gradient(90deg, #FA7921 0%, #F9FAFB 100%);
+    margin-bottom: 2rem;
+  }
+
+  .gradientBar1 {
+    height: 25px;
+    background: linear-gradient(90deg, #60d8f4 0%, #F9FAFB 100%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .carouselContainer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .carouselContent {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+  
+  .carouselItem {
+    min-width: 300px;
+    margin-right: 2rem;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .imageContainer {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .image {
+    width: 46.08rem;
+    height: 30.36rem;    
+    transition: transform 0.3s ease;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin: 4rem 0 2rem;
+    text-align: center;
+  }
+  
+  .contentBox {
+    display: flex;
+    width: 85.36rem;
+    height: 34.78rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.20);    
+    transition: transform 0.3s ease;
+  }
+  
+  .contentBox:hover {
+    transform: translateY(-5px);
+  }
+  
+  .reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .imageWrapper {
+    flex: 1;
+    min-width: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .contentImage {
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .contentImage:hover {
+    transform: scale(1.03);
+  }
+  
+  .textContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: justify ;
+
+  }
+  
+  .contentTitle {
+    color: #e55934;
+    margin-bottom: 1rem;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 66px;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+  }
+  
+  .contentText {
+    line-height: 1.6;
+    color: #525252;
+    font-family: 'Actor';
+    font-weight: 400;
+    max-width: 700px;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+  }
+
+  /* Button styles */
+.button {
+    align-self: flex-end;
+    background-color: #FA7921;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5.5rem;
+    text-transform: uppercase;
+  }
+  
+  .button:hover {
+    background-color: #e56a17;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  
+  .reverse .button {
+    align-self: flex-end;
+  }
+
+  .link {
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+    color:#002353;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: right;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-offset: 0%;
+    text-decoration-thickness: 0%;
+
+  }
+  
+  .link:hover {
+    color: #d16112;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Pause animation on hover */
+  .carouselContainer:hover .carouselContent {
+    animation-play-state: paused;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+    
+    .carouselItem {
+      min-width: 250px;
+    }
+    
+    .imageContainer {
+      width: 250px;
+      height: 350px;
+    }
+  }

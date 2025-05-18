@@ -7,20 +7,51 @@ import { Eye, EyeOff } from 'lucide-react'; // Import these icons
 import { ActivityIcon} from '../components/Icons';
 import AidePage from "@/app/profile/sections/aide";
 
-const WelcomeModal = ({ onClose }: { onClose: () => void }) => (
+// Generic Modal Component
+const CustomModal = ({
+  gifSrc,
+  heading,
+  message,
+  primaryButtonText,
+  secondaryButtonText,
+  onPrimaryClick,
+  onSecondaryClick,
+  onClose
+}: {
+  gifSrc: string;
+  heading?: string;
+  message: string;
+  primaryButtonText: string;
+  secondaryButtonText?: string;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
+  onClose: () => void;
+}) => (
   <div className={styles.modalOverlay}>
     <div className={styles.modalContent}>
-      <h2>Welcome Back! 👋</h2>
-      <p>You have successfully logged in.</p>
-      <button 
-        onClick={onClose}
-        className={styles.modalButton}
-      >
-        OK
-      </button>
+      <img src={gifSrc} alt="Status GIF" className={styles.modalGif} />
+      <h2 className={styles.modalHeading}>{heading}</h2>
+      <p className={styles.modalMessage}>{message}</p>
+      <div className={styles.modalButtons}>
+        <button 
+          onClick={onPrimaryClick || onClose}
+          className={styles.modalButton}
+        >
+          {primaryButtonText}
+        </button>
+        {secondaryButtonText && (
+          <button 
+            onClick={onSecondaryClick || onClose}
+            className={styles.modalButtonSecondary}
+          >
+            {secondaryButtonText}
+          </button>
+        )}
+      </div>
     </div>
   </div>
 );
+
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('profile');
@@ -41,35 +72,70 @@ export default function ProfilePage() {
     phone: '',
   });
 
+    // Modal states
+    const [activeModal, setActiveModal] = useState<
+    'welcome' | 'logout' | 'updateSuccess' | 
+    'updateError' | 'delete' | null
+  >(null);
+
+  // Modals configuration
+  const modals = {
+    welcome: {
+      gifSrc: '/gifs/gif-check1.gif',
+      heading: 'Félicitation! 👋',
+      message: "Vous aves connecté avec succées. s'il vous plaît changeé vos mot de passe",
+      primaryButtonText: 'OK',
+    },
+    logout: {
+      gifSrc: '/gifs/gif-alert2.gif',
+      message: 'Voulez-vous vraiment vous déconnecter ?',
+      primaryButtonText: 'Oui',
+      secondaryButtonText: 'Annuler',
+    },
+    updateSuccess: {
+      gifSrc: '/gifs/gif-check1.gif',
+      heading: 'succès',
+      message: 'Votre profil a été mis à jour avec succès.',
+      primaryButtonText: 'Continuer',
+    },
+    updateError: {
+      gifSrc: '/gifs/gif-alert2.gif',
+      heading: 'Erreur',
+      message: 'Données utilisateur introuvables.',
+      primaryButtonText: 'Réessayer',
+    },
+    delete: {
+      gifSrc: '/gifs/gif-alert2.gif',
+      message: 'Voulez-vous vraiment vous supprimer le compte ?',
+      primaryButtonText: 'Oui',
+      secondaryButtonText: 'Annuler',
+    },
+  };
+
+
+  // Update handling with modals
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+    
     if (formData.password !== confirmPassword) {
-      alert('Passwords do not match!');
+      setActiveModal('updateError');
       return;
     }
-  
+
     try {
       const res = await fetch(`http://localhost:8000/auth/update/${userId}`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify(formData),
       });
-  
+
       if (!res.ok) throw new Error('Failed to update profile');
-  
-      const updated = await res.json();
-      console.log('Profile updated:', updated);
-      alert('Profile updated successfully!');
+      setActiveModal('updateSuccess');
     } catch (err) {
       console.error('Update error:', err);
-      alert('Something went wrong.');
+      setActiveModal('updateError');
     }
-
-
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,6 +168,33 @@ export default function ProfilePage() {
       console.error('Upload error:', error);
     }
   };
+
+    // Logout handler
+    const handleLogout = async () => {
+      try {
+        await fetch('http://localhost:8000/auth/logout', {
+          method: 'POST',
+          credentials: 'include'
+        });
+        window.location.href = '/sign-in';
+      } catch (err) {
+        console.error('Logout error:', err);
+      }
+    };
+  
+    // Delete account handler
+    const handleDeleteAccount = async () => {
+      try {
+        await fetch(`http://localhost:8000/auth/delete/${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+        window.location.href = '/';
+      } catch (err) {
+        console.error('Delete error:', err);
+      }
+    };
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const authSuccess = urlParams.get('authSuccess');       
@@ -219,12 +312,13 @@ export default function ProfilePage() {
             <span>aide</span>
           </button>
 
-          <button
-            onClick={() => setActiveTab('activity')}
-            className={`${styles.navButton} ${activeTab === 'activity' ? styles.active : ''}` }
+      {/* Activity/Logout button */}
+        <button
+            onClick={() => setActiveModal('logout')}
+            className={`${styles.navButton} ${activeTab === 'activity' ? styles.active : ''}`}
           >
             <ActivityIcon active={activeTab === 'activity'} />
-            <span style={{ color: "#FF4444" }} >déconnexion</span>
+            <span style={{ color: "#FF4444" }}>déconnexion</span>
           </button>
         </div>
       </nav>
@@ -306,8 +400,7 @@ export default function ProfilePage() {
                   className={styles.formInput}
                   placeholder="Mot de passe *"
                   required
-                  minLength={8}
-                />
+                                  />
                 <button
                   type="button"
                   className={styles.passwordToggle}
@@ -400,9 +493,10 @@ export default function ProfilePage() {
               Modifier
             </button>
                   {/* Delete Button */}
-      <button 
-        className="flex pl-41 pt-5 items-center gap-1 hover:opacity-75 transition-opacity"
-      >
+            <button 
+          onClick={() => setActiveModal('delete')}
+          className={styles.deleteButton}
+        >
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           width="16" 
@@ -428,7 +522,25 @@ export default function ProfilePage() {
         )}  
         {activeTab === 'aide' && <AidePage />}
       </main>
-      {showWelcomeModal && <WelcomeModal onClose={() => setShowWelcomeModal(false)} />}
+      {activeModal && (
+        <CustomModal
+          {...modals[activeModal]}
+          onClose={() => setActiveModal(null)}
+          onPrimaryClick={
+            activeModal === 'logout' ? handleLogout :
+            activeModal === 'delete' ? handleDeleteAccount : undefined
+          }
+          onSecondaryClick={() => setActiveModal(null)}
+        />
+      )}
+
+      {/* Welcome Modal (triggered by authSuccess) */}
+      {showWelcomeModal && (
+        <CustomModal
+          {...modals.welcome}
+          onClose={() => setShowWelcomeModal(false)}
+        />
+      )}
     </div>
 
   );

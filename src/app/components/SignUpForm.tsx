@@ -4,8 +4,54 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "@/app/style/register.css";
+import { useRouter } from "next/navigation";
+
+const CustomModal = ({
+  gifSrc,
+  heading,
+  message,
+  primaryButtonText,
+  secondaryButtonText,
+  onPrimaryClick,
+  onSecondaryClick,
+  onClose
+}: {
+  gifSrc: string;
+  heading?: string;
+  message: string;
+  primaryButtonText: string;
+  secondaryButtonText?: string;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
+  onClose: () => void;
+}) => (
+  <div className='modalOverlay'>
+    <div className='modalContent'>
+      <img src={gifSrc} alt="Status GIF" className='modalGif' />
+      <h2 className='modalHeading'>{heading}</h2>
+      <p className='modalMessage'>{message}</p>
+      <div className='modalButtons'>
+        <button 
+          onClick={onPrimaryClick || onClose}
+          className='modalButton'
+        >
+          {primaryButtonText}
+        </button>
+        {secondaryButtonText && (
+          <button 
+            onClick={onSecondaryClick || onClose}
+            className='modalButtonSecondary'
+          >
+            {secondaryButtonText}
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+);
 
 export default function SignUpForm() {
+  const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +61,68 @@ export default function SignUpForm() {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [activeModal, setActiveModal] = useState<'Success' | 'Error' | null>(null);
+
+  const modals = {
+    Success: {
+      gifSrc: '/gifs/gif-check1.gif',
+      heading: 'succès',
+      message: 'Compte créé avec succès. Un code de vérification vous a été envoyé par email.',
+      primaryButtonText: 'Continuer',
+    },
+    Error: {
+      gifSrc: '/gifs/gif-alert2.gif',
+      heading: 'Erreur',
+      message: "Échec de l'inscription. Veuillez vérifier les informations saisies.",
+      primaryButtonText: 'Réessayer',
+    },
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setActiveModal('Error');
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: fullName,
+          email,
+          password,
+          country,
+          region,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
+        setActiveModal('Success');
+      } else {
+        setActiveModal('Error');
+      }
+    } catch (error) {
+      console.error("Erreur complète:", error);
+      setActiveModal('Error');
+    }
+  };
+
+  const handleModalContinue = () => {
+    setActiveModal(null);
+    if (activeModal === 'Success') {
+      router.push("/sign-up/verification");
+    }
+  };
+
+  
 
   return (
     <main className="main-container">
@@ -57,7 +165,7 @@ export default function SignUpForm() {
           height={80}
           className="logo"
         />
-        <div className="form-container">
+        <div className="form-container" onSubmit={handleSubmit}>
           <h2 className="form-title">Créer un compte</h2>
           <form className="auth-form">
             {/* Input Nom complet */}
@@ -96,6 +204,7 @@ export default function SignUpForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="form-input"
+                minLength={8}
                 required
               />
               {!password && (
@@ -127,6 +236,7 @@ export default function SignUpForm() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 className="form-input"
+                minLength={8}
                 required
               />
               {!confirmPassword && (
@@ -253,6 +363,14 @@ export default function SignUpForm() {
           </form>
         </div>
       </div>
+            {/* Modal Render */}
+            {activeModal && (
+        <CustomModal
+          {...modals[activeModal]}
+          onClose={() => setActiveModal(null)}
+          onPrimaryClick={handleModalContinue}
+        />
+      )}
     </main>
   );
 }

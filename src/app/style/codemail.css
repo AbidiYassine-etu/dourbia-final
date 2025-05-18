@@ -7,6 +7,7 @@ body {
     padding-top: 4rem; /* Space for header */
     background: linear-gradient(0deg, #FEFEFE 0%, #FEFEFE 100%), #FFF;
     position: relative;
+    
 }
 
 /* Main content area */
@@ -56,7 +57,7 @@ main {
     align-items: center;
     color: #002353;
     font-family: ABeeZee;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -70,6 +71,7 @@ main {
     height: 1.57475rem;
     padding-top:1rem ;
     margin-bottom: 3rem;
+    margin-left: 3rem;
     flex-shrink: 0;
     justify-content: space-between;
     }
@@ -80,12 +82,12 @@ main {
     color: #002863;
     text-align: center;
     font-family: ABeeZee;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
-    left: 720px;
+    left: 770px;
     bottom: 550px;
   }
       
@@ -178,6 +180,7 @@ main {
     cursor: pointer;
     transition: opacity 0.2s ease;
     gap: 0.6rem;
+    margin-bottom: 2rem;
 }
 
 .resend-button:hover {

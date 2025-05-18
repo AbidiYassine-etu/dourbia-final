@@ -5,6 +5,7 @@
   width: 45.4375rem;
   height: 56.625rem;
   flex-shrink: 0;    
+  margin-left: 20rem;
 }
 .aideTitle {
   color: #FB7822;
@@ -17,7 +18,7 @@
 .phoneVideo {
   position: absolute;
   bottom:15px;
-  right: 1130px;
+  right: 810px;
   width: 185px;
   height: 440px;
   border-radius: 24px; /* optional: match rounded screen corners */

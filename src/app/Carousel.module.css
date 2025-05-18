@@ -367,7 +367,7 @@
 
 @media (max-width: 900px) {
   .carousel {
-    height: 400px;
+    height: 300px;
   }
 
   .carouselItem {
@@ -381,7 +381,7 @@
     font-size: 0.8rem;
   }
   
-  .title {
+  .title,.title1 {
     font-size: 1rem;
     -webkit-text-stroke-width: 0.8px;
   }
@@ -418,14 +418,8 @@
     height: 300px;
   }
 
-  .centeredButton {
-    width: 190px;
-    min-height: 20px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-  }
   
-  .title {
+  .title,.title1 {
     font-size: 1rem;
     line-height: 1rem;
   }
@@ -456,6 +450,212 @@
       width: 35%;
       height: 35%;
     }
+
+    /* Add these media queries at the bottom of your CSS file */
+
+@media (max-width: 1200px) {
+  .subtitle {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  
+  .capitalizeText,
+  .uppercaseText {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  
+  .customSelect {
+    width: 14rem;
+  }
+  
+  .confirmationButton {
+    width: 14rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .carouselCaption {
+    width: 90%;
+  }
+  
+  .title,.title1 {
+    font-size: 1.5rem;
+    top: 120px;
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    top: 40px;
+  }
+  
+  .capitalizeText,
+  .uppercaseText {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+  
+  .bookingWidget {
+    top: 55%;
+  }
+  
+  .selectGroup {
+    flex-wrap: wrap;
+    top: 120px;
+  }
+  
+  .customSelect {
+    width: 12rem;
+  }
+  
+  .confirmationButton {
+    width: 12rem;
+    font-size: 1rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageContainer {
+    margin-top: 3rem;
+    margin-left: 1rem;
+    height: 100%;
+  }
+  
+  .title,.title1 {
+    font-size: 1rem;
+    top: 100px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    line-height: 2rem;
+    top: 30px;
+  }
+  
+  .capitalizeText,
+  .uppercaseText {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    white-space: normal;
+  }
+  
+  .svgWrapper,
+  .svgWrapper2 {
+    margin: 0.2rem 0;
+  }
+  
+  .orangeShape,
+  .orangeShape2 {
+    width: 100% !important;
+    height: 80%;
+  }
+
+  .underlineSVG {
+    width: 100% !important;
+    height: 80%;
+    top: 5px;
+    left: 136px;
+  }
+  
+  .bookingWidget {
+    top: 40%;
+  }
+  
+  .selectGroup {
+    top: 100px;
+    gap: 1rem;
+  }
+  
+  .customSelect {
+    width: 10rem;
+  }
+  
+  .confirmationButton {
+    width: 10rem;
+    height: 3rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 0.8rem;
+    top: 80px;
+  }
+
+  .title1{
+    font-size: 0.8rem;
+    top:20px;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    top: 20px;
+  }
+  
+  .capitalizeText{
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    padding: 0.2em 0.5em;
+  }
+  
+  .selectGroup {
+    top: 100px;
+  }
+  
+  .customSelect {
+    width: 8rem;
+  }
+  
+  .selectInput {
+    height: 1%;
+    font-size: 0.8rem;
+  }
+  
+  .confirmationButton {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .carouselDots {
+    bottom: 530px;
+  }
+  
+  .dot {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .capitalizeText,
+  .uppercaseText {
+    font-size: 1rem;
+  }
+  
+  .selectGroup {
+    top: 60px;
+  }
+  
+  .customSelect {
+    width: 7rem;
+  }
+  
+  .confirmationButton {
+    width: 7rem;
+    font-size: 0.7rem;
+  }
+}
+    
 }
 
 

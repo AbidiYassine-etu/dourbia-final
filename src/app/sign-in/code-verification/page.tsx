@@ -173,7 +173,7 @@ const VerificationCode = () => {
                 <div >
                     {/* First text with subtle styling */}
                     <span className="timer-info">
-                        <span className="timer-text">Nouveau code disponible dans 10 minutes</span>
+                        <span className="timer-text">Ce code est valable durant 10 minutes</span>
                     </span>
                     {/* Second text with different styling */}
                     <span className="timer-display">
